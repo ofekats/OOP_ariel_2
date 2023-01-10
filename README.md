@@ -5,7 +5,7 @@ In this assignment-part 1: we created n number of files each of them with random
 we counted how many lines there are (in all of the files) in 3 ways:  
     1. one by one  
     2. each file with different thread  
-    3. each file with different thread exceute by threadpool
+    3. each file with different thread exceute by threadpool  
     for each way we checked the time it took.  
 ### result
 

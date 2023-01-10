@@ -11,14 +11,14 @@ public class CustomExecutor {//extends ThreadPoolExecutor{
 
     //tor
     private ThreadPoolExecutor new_pool;
-    private PriorityBlockingQueue P_queue;
+    private PriorityBlockingQueue<Runnable> P_queue;
 
     private int Max_pri = -1;
 
     public CustomExecutor() {
         int min = Runtime.getRuntime().availableProcessors() / 2;
         int max = Runtime.getRuntime().availableProcessors() - 1;
-        P_queue = new PriorityBlockingQueue<>(min, Comparator.comparing(task -> ((TaskAdapt) task)));
+        P_queue = new PriorityBlockingQueue<>(min, Comparator.comparing(task -> ((TaskAdapt<?>) task)));
 //                new Comparator<Object>(){
 //            @Override
 //            public int compare(Object o1, Object o2) {
@@ -44,13 +44,13 @@ public class CustomExecutor {//extends ThreadPoolExecutor{
 //        }
         Future<?> future = null;
         try {
-            future = new_pool.submit((Callable<?>) t);
+            future = new_pool.submit(t);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (!new_pool.getQueue().isEmpty()) {
-            if (new_pool.getQueue().peek() instanceof Task<?>)
-                this.Max_pri = ((Task<?>) new_pool.getQueue().peek()).getPriority();
+//        if (!new_pool.getQueue().isEmpty()) {
+//            if (new_pool.getQueue().peek() instanceof Task<?>)
+//                this.Max_pri = ((Task<?>) new_pool.getQueue().peek()).getPriority();
 //            if (new_pool.getQueue().peek() instanceof FutureTask<?>) {
                 //System.out.print((new_pool.getQueue().peek()));
 //                Task ta = new FutureTaskAdapter(new_pool.getQueue().peek());
@@ -62,7 +62,7 @@ public class CustomExecutor {//extends ThreadPoolExecutor{
 //                System.out.print(r);
 //                Task ta = new FutureTaskAdapter(r);
 //                System.out.print((ta).getPriority()+ ", ");
-            }
+//            }
 //            } else {
 //                for (Runnable r : new_pool.getQueue()) {
 //                    System.out.print(r + ", ");
@@ -71,7 +71,7 @@ public class CustomExecutor {//extends ThreadPoolExecutor{
             return future;
         }
 
-    public <T> Future<?> submit(Callable<?> c, TaskType taskType)
+    public <T> Future<?> submit(Callable<T> c, TaskType taskType)
     {
         Task<?> t = Task.createTask(c , taskType);
         return this.submit(t);
@@ -91,14 +91,14 @@ public class CustomExecutor {//extends ThreadPoolExecutor{
 
     public void gracefullyTerminate()
     {
-        while (true)
-        {
-            if(new_pool.getQueue().isEmpty())
-            {
+//        while (true)
+//        {
+//            if(new_pool.getQueue().isEmpty())
+//            {
                 new_pool.shutdown();
-                break;
-            }
-        }
+//                break;
+//            }
+//        }
     }
 
     //@Override

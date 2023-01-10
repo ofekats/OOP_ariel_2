@@ -8,7 +8,7 @@ public class Task<V>  implements Callable<V>, Comparable<Task>{
     private TaskType taskType;
     private Callable<V> c;
 
-    private Task(Callable<V> c, TaskType taskType){
+    protected Task(Callable<V> c, TaskType taskType){
         this.taskType = taskType;
         this.c = c;
     }
@@ -58,6 +58,11 @@ public class Task<V>  implements Callable<V>, Comparable<Task>{
     public int getPriority()
     {
         return this.taskType.getPriorityValue();
+    }
+
+    public Callable<V> getCallable()
+    {
+        return this.c;
     }
 
 

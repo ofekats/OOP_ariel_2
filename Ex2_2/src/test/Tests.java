@@ -73,19 +73,21 @@ public class Tests {
             }, TaskType.COMPUTATIONAL);
             customExecutor.submit(()-> {
                 System.out.println("2IO!!!");
-                return 1000 * Math.pow(1.02, 3);
+                return 1000 * Math.pow(1.02, 37);
             }, TaskType.IO);
-            customExecutor.submit(()-> {
-                System.out.println("3OTHER!!!");
-                return 1000 * Math.pow(1.02, 30);
-            }, TaskType.OTHER);
-            customExecutor.submit(()-> {
-                System.out.println("3OTHER!!!");
-                return 1000 * Math.pow(1.02, 30);
-            }, TaskType.OTHER);
+
+
+//            customExecutor.submit(()-> {
+//                System.out.println("3OTHER!!!");
+//                return 1000 * Math.pow(1.02, 30);
+//            }, TaskType.OTHER);
+//            customExecutor.submit(()-> {
+//                System.out.println("3OTHER!!!");
+//                return 1000 * Math.pow(1.02, 30);
+//            }, TaskType.OTHER);
             customExecutor.submit(()-> {
                 System.out.println("2IO!!!");
-                return 1000 * Math.pow(1.02, 3);
+                return 1000 * Math.pow(1.02, 35);
             }, TaskType.IO);
             logger.info(()-> "Current maximum priority = " +
                     customExecutor.getCurrentMax());

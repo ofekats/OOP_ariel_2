@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/ofek/IdeaProjects/Ex2_1</OriginalElement>
+  <nodes>
+    <node x="35.66528066528065" y="82.36122661122667">main.MyTreadPool</node>
+    <node x="35.66528066528065" y="176.968814968815">main.Mythread</node>
+    <node x="-330.008316008316" y="82.36122661122667">main.Ex2_1</node>
+    <node x="-477.0" y="146.26767151767157">test.Tests</node>
+    <node x="260.1268191268191" y="93.86122661122666">java.util.concurrent.Callable</node>
+    <node x="260.1268191268191" y="216.56211018711022">java.lang.Thread</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.Mythread" target="java.lang.Thread" relationship="GENERALIZATION">
+      <point x="79.5" y="0.0" />
+      <point x="-67.0" y="0.0" />
+    </edge>
+    <edge source="main.MyTreadPool" target="java.util.concurrent.Callable" relationship="REALIZATION">
+      <point x="79.5" y="-1.4210854715202004E-14" />
+      <point x="-67.0" y="0.0" />
+    </edge>
+    <edge source="main.Ex2_1" target="main.Mythread" relationship="CREATE">
+      <point x="137.504158004158" y="47.30379417879416" />
+      <point x="-79.5" y="0.0" />
+    </edge>
+    <edge source="main.Ex2_1" target="main.MyTreadPool" relationship="CREATE">
+      <point x="137.504158004158" y="-63.906444906444904" />
+      <point x="-79.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9730941704035875" showDependencies="true" x="-31.0" y="195.00000000000003" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

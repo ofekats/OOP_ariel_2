@@ -9,7 +9,7 @@ we counted how many lines there are (in all of the files we created) in 3 ways:
     for each way we checked the time it took.  
 ### result
 We got that the third way, of using the threadpool, was the fastest.  
-After that, the second way - each thread for each file. and cunting one by one took the longest.    
+After that, the second way - each thread for each file. and counting one by one took the longest.    
   
 Threads allows a program to operate more efficiently by doing multiple things at the same time.  
 So instead of the program to count file one by one, the program can generate  

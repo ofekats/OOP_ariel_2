@@ -19,7 +19,7 @@ that the threadpool create a number of threads that when each thread ending his 
 to do until there is no tasks. So as we can see the runtime of threadpool is better than threads which better than doing tasks one by one.  
 ## Ex2_2 - part 2
 ### The purpose of the assignment
-Create a new type that represents an asynchronous task with priority and a new ThreadPool type that supports tasks with priority.  
+In this assignment-part 2: Create a new type that represents an asynchronous task with priority and a new ThreadPool type that supports tasks with priority.  
 ### sumup
 we created Task objects that have a priority and a return value.  
 we implemented Comparable so that Task objects can be compared (the lowest priority first).  

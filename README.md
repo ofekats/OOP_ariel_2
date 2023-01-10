@@ -24,7 +24,7 @@ In this assignment-part 2: Create a new type that represents an asynchronous tas
 we created Task objects that have a priority and a return value.  
 we implemented Comparable so that Task objects can be compared (the lowest priority first).  
 we created a new of ThreadPool that support those Task.  
-we used adapter design pattern to adapt from FutureTask (Runnuble- without returne value) to our Task (Callable).  
+we used adapter design pattern to adapt from FutureTask (Runnuble- without return value) to our Task (Callable).  
   
 our CustomExecutor gets queue with our Tasks and execute them by their priority (the lowest priority first).  
 

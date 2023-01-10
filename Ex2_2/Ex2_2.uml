@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/ofek/IdeaProjects/Ex2_2</OriginalElement>
+  <nodes>
+    <node x="-840.8714555765591" y="1140.2505569321597">main.Task</node>
+    <node x="-840.8714555765591" y="964.6190658434498">main.TaskAdaptFuture</node>
+    <node x="-828.8714555765591" y="868.2487549582472">java.util.concurrent.FutureTask</node>
+    <node x="-480.25586989599185" y="1140.2505569321597">main.TaskType</node>
+    <node x="-1404.1232170476028" y="1140.2505569321597">test.Tests</node>
+    <node x="-462.25586989599185" y="1032.61906584345">java.lang.Comparable</node>
+    <node x="-1177.906427221172" y="1055.1995132446982">java.util.concurrent.ThreadPoolExecutor</node>
+    <node x="-1177.906427221172" y="1140.2505569321597">main.CustomExecutor</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.CustomExecutor" target="java.util.concurrent.ThreadPoolExecutor" relationship="GENERALIZATION">
+      <point x="-53.5" y="-83.0" />
+      <point x="0.0" y="15.709776299376017" />
+    </edge>
+    <edge source="main.TaskType" target="java.lang.Comparable" relationship="REALIZATION">
+      <point x="-1.3010400812163425E-4" y="-93.99955693215975" />
+      <point x="-1.3010400812163425E-4" y="26.999934156549898" />
+    </edge>
+    <edge source="test.Tests" target="main.CustomExecutor" relationship="CREATE">
+      <point x="72.5" y="22.5" />
+      <point x="-144.0" y="0.0" />
+    </edge>
+    <edge source="main.Task" target="java.lang.Comparable" relationship="REALIZATION">
+      <point x="4.555765591476302E-4" y="-127.49955693215975" />
+      <point x="-702.371" y="1114.0" />
+      <point x="-382.756" y="1114.0" />
+      <point x="-1.3010400812163425E-4" y="26.999934156549898" />
+    </edge>
+    <edge source="main.TaskAdaptFuture" target="java.lang.Comparable" relationship="REALIZATION">
+      <point x="4.555765591476302E-4" y="60.999934156550125" />
+      <point x="-731.371" y="1114.0" />
+      <point x="-382.756" y="1114.0" />
+      <point x="-1.3010400812163425E-4" y="26.999934156549898" />
+    </edge>
+    <edge source="main.TaskAdaptFuture" target="java.util.concurrent.FutureTask" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="28.5" />
+    </edge>
+    <edge source="main.TaskAdaptFuture" target="main.Task" relationship="TO_ONE">
+      <point x="-14.999544423440852" y="61.0" />
+      <point x="-43.99954442344085" y="-127.5" />
+    </edge>
+    <edge source="main.Task" target="main.TaskType" relationship="TO_ONE">
+      <point x="138.5" y="-33.5" />
+      <point x="-97.5" y="0.0" />
+    </edge>
+    <edge source="main.CustomExecutor" target="main.TaskAdaptFuture" relationship="CREATE">
+      <point x="44.5" y="-83.0" />
+      <point x="-989.406427221172" y="1025.6190658434498" />
+      <point x="-109.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7775438596491229" showDependencies="true" x="-835.0000000000001" y="1142.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

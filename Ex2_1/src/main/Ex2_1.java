@@ -22,7 +22,7 @@ public class Ex2_1 {
      */
     public static String[] createTextFiles(int n, int seed, int bound)
     {
-        if(n >= 0)
+        if(n > 0)
         {
             String files_names [] = new String [n];
             Random rand = new Random(seed);
@@ -54,9 +54,11 @@ public class Ex2_1 {
             }
             return files_names;
         }else {
+            String files_names [] = new String [1];
+            files_names[0] = null;
             System.out.println("number of files need to be positive!");
+            return files_names;
         }
-        return null;
     }
 
     /**
@@ -92,16 +94,20 @@ public class Ex2_1 {
      */
     public static int getNumOfLines(String[] fileNames)
     {
-        Instant start = Instant.now();
         int sum = 0;
-        for (int i =0; i < fileNames.length; i++)
+        if(fileNames[0] == null)
         {
-            sum += getNumOfLines_OneFile(fileNames[i]);
+            System.out.println("null!");
+        }else {
+            Instant start = Instant.now();
+            for (int i = 0; i < fileNames.length; i++) {
+                sum += getNumOfLines_OneFile(fileNames[i]);
+            }
+            Instant end = Instant.now();
+            Duration elapsed = Duration.between(start, end);
+            long elapsedMillis = elapsed.toMillis();
+            System.out.println("func 2, without threads: " + elapsedMillis + " Millis");
         }
-        Instant end = Instant.now();
-        Duration elapsed = Duration.between(start, end);
-        long elapsedMillis = elapsed.toMillis();
-        System.out.println("func 2, without threads: "+elapsedMillis +" Millis");
         return sum;
     }
 
@@ -114,25 +120,30 @@ public class Ex2_1 {
      */
     public int getNumOfLinesThreads(String[] fileNames)
     {
-        Instant start = Instant.now();
         int sum = 0;
-        Mythread [] threads = new Mythread[fileNames.length];
-        try {
-            for(int i=0; i < fileNames.length; i++) {
-                threads[i] = new Mythread(fileNames[i]);
-                threads[i].start();
-            }
-            for(int i=0; i < fileNames.length; i++) {
-                threads[i].join();
-                sum += threads[i].getNumOfLines();
-            }
+        if(fileNames[0] == null)
+        {
+            System.out.println("null!");
+        }else {
+            Instant start = Instant.now();
+            Mythread[] threads = new Mythread[fileNames.length];
+            try {
+                for (int i = 0; i < fileNames.length; i++) {
+                    threads[i] = new Mythread(fileNames[i]);
+                    threads[i].start();
+                }
+                for (int i = 0; i < fileNames.length; i++) {
+                    threads[i].join();
+                    sum += threads[i].getNumOfLines();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        Instant end = Instant.now();
-        Duration elapsed = Duration.between(start, end);
-        long elapsedMillis = elapsed.toMillis();
-        System.out.println("func 3, with threads: "+elapsedMillis +" Millis");
+            Instant end = Instant.now();
+            Duration elapsed = Duration.between(start, end);
+            long elapsedMillis = elapsed.toMillis();
+            System.out.println("func 3, with threads: " + elapsedMillis + " Millis");
+        }
         return sum;
     }
 
@@ -145,31 +156,34 @@ public class Ex2_1 {
      */
     public int getNumOfLinesThreadPool(String[] fileNames)
     {
-        Instant start = Instant.now();
         int sum = 0;
-        try {
-            MyTreadPool [] threads = new MyTreadPool[fileNames.length];
-            List<Future<Integer>> futures = new ArrayList<>();
-            ExecutorService pool = Executors.newFixedThreadPool(fileNames.length);
-            for(int i=0; i < threads.length; i++)
-            {
-                threads[i] = new MyTreadPool(fileNames[i]);
-                Future<Integer> future = pool.submit(threads[i]);
-                futures.add(future);
+        if(fileNames[0] == null)
+        {
+            System.out.println("null!");
+        }else {
+            Instant start = Instant.now();
+                        try {
+                MyTreadPool[] threads = new MyTreadPool[fileNames.length];
+                List<Future<Integer>> futures = new ArrayList<>();
+                ExecutorService pool = Executors.newFixedThreadPool(fileNames.length);
+                for (int i = 0; i < threads.length; i++) {
+                    threads[i] = new MyTreadPool(fileNames[i]);
+                    Future<Integer> future = pool.submit(threads[i]);
+                    futures.add(future);
+                }
+                for (Future f : futures) {
+                    sum += (int) f.get();
+                }
+                pool.shutdown();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            for(Future f : futures)
-            {
-                sum += (int) f.get();
-            }
-            pool.shutdown();
-        }catch (Exception e) {
-            e.printStackTrace();
+            Instant end = Instant.now();
+            Duration elapsed = Duration.between(start, end);
+            long elapsedMillis = elapsed.toMillis();
+            System.out.println("func 4, with thread-pool: " + elapsedMillis + " Millis");
         }
-        Instant end = Instant.now();
-        Duration elapsed = Duration.between(start, end);
-        long elapsedMillis = elapsed.toMillis();
-        System.out.println("func 4, with thread-pool: "+elapsedMillis +" Millis");
-        return sum;
+            return sum;
     }
 
     /**
@@ -178,6 +192,10 @@ public class Ex2_1 {
      */
     public static void delete_files(String[] fileNames)
     {
+        if(fileNames[0] == null)
+        {
+            System.out.println("null!");
+        }else {
         try {
             for (int i =0; i< fileNames.length; i++) {
                 File f = new File(fileNames[i]);
@@ -194,6 +212,6 @@ public class Ex2_1 {
         } catch (SecurityException e) {
                 e.printStackTrace();
             }
-    }
+    }}
 }
 

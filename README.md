@@ -19,6 +19,9 @@ threads which will count the lines of the files at the same time. But, when we u
 thread for each task (-for each file) and after the thread ending his task he dies. so instead we can use threadpool, That mean  
 that the threadpool create a number of threads that when each thread ending his task he will take a new task  
 to do until there is no tasks left. So as we can see the runtime of threadpool is better than threads which is better than doing tasks one by one.  
+### diagram  
+![Ex2_1](https://user-images.githubusercontent.com/118768684/211797086-f25890d9-a205-4bf7-b199-3abd1f34c619.png)
+
 ## Ex2_2 - part 2
 ### The purpose of the assignment
 In this assignment-part 2: Create a new type that represents an asynchronous task with priority and a new ThreadPool type that supports tasks with priority.  
@@ -28,5 +31,8 @@ we implemented Comparable so that Task objects can be compared (the lowest prior
 we created a new of ThreadPool that support those Task.  
 we used adapter design pattern to adapt from FutureTask (Runnuble- without return value) to our Task (Callable).  
   
-our CustomExecutor gets queue with our Tasks and execute them by their priority (the lowest priority first).  
+our CustomExecutor gets queue with our Tasks and execute them by their priority (the lowest priority first).    
+### diagram  
+![Ex2_2](https://user-images.githubusercontent.com/118768684/211797012-82728709-b56c-4e31-ac5a-56ec353e32d8.png)
+
 

@@ -36,4 +36,13 @@ public class Tests {
         Ex2_1.delete_files(files_names);
     }
 
+    /**
+     * if n < 0 exit
+     */
+    @Test
+    public void Test_n0(){
+        String files_names [] = Ex2_1.createTextFiles(-1, 3, 1000);
+        assertEquals(null ,files_names);
+    }
+
 }

@@ -22,35 +22,41 @@ public class Ex2_1 {
      */
     public static String[] createTextFiles(int n, int seed, int bound)
     {
-        String files_names [] = new String [n];
-        Random rand = new Random(seed);
-        for (int i = 0; i < n; i++) {
-            //generate number of line in a file
-            int x = rand.nextInt(bound);
-            try {
+        if(n >= 0)
+        {
+            String files_names [] = new String [n];
+            Random rand = new Random(seed);
+            for (int i = 0; i < n; i++) {
+                //generate number of line in a file
+                int x = rand.nextInt(bound);
+                try {
 
-                String name = "file_"+(i+1)+".txt";
-                // Create a new file
-                File file = new File(name);
-                files_names[i] = name;
-                // Create a new PrintWriter object for writing to the file
-                PrintWriter writer = new PrintWriter(file);
-                for (int j = 0; j < x; j++) {
-                    // Write some text to the file
-                    if (j == x - 1) {
-                        //the last line will not have \n
-                        writer.print("Hello, World!");
-                        break;
+                    String name = "file_"+(i+1)+".txt";
+                    // Create a new file
+                    File file = new File(name);
+                    files_names[i] = name;
+                    // Create a new PrintWriter object for writing to the file
+                    PrintWriter writer = new PrintWriter(file);
+                    for (int j = 0; j < x; j++) {
+                        // Write some text to the file
+                        if (j == x - 1) {
+                            //the last line will not have \n
+                            writer.print("Hello, World!");
+                            break;
+                        }
+                        writer.println("Hello, World!");
                     }
-                    writer.println("Hello, World!");
+                    // Close the PrintWriter
+                    writer.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                // Close the PrintWriter
-                writer.close();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            return files_names;
+        }else {
+            System.out.println("number of files need to be positive!");
         }
-        return files_names;
+        return null;
     }
 
     /**

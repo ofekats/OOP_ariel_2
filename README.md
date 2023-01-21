@@ -10,6 +10,8 @@ we counted how many lines there are (in all of the files we created) in 3 ways:
 ### result & explanation
 We got that the third way, of using the threadpool, was the fastest.  
 After that, the second way - each thread for each file, and counting one by one took the longest. 
+![image](https://user-images.githubusercontent.com/118768684/213880368-5482f0c6-089b-461c-9648-51414c8160f2.png)
+
 ![image](https://user-images.githubusercontent.com/118768684/211796705-b20beabf-4f24-41d0-a7e9-ecae4bef4cfa.png)  
 
   
